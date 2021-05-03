@@ -22,3 +22,17 @@ class VisitanteForm (forms.ModelForm):
             }
 
         }
+
+class AutorizaVisitanteForm(forms.ModelForm):
+    morador_responsavel = forms.CharField(required=True)
+
+    class Meta:
+            model = Visitante
+            fields = [
+                   "morador_responsavel"
+                ]
+            error_messages ={
+                    "morador_responsavel": {
+                        "required":"Por favor, informe o nome do morador responsável por autorizar a entrada"
+                    }
+                }
